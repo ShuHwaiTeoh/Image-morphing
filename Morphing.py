@@ -14,7 +14,7 @@ from matplotlib.path import Path
 # Module  level  Variables. (Write  this  statement  verbatim .)
 #######################################################
 
-def loadTriangles(leftPointFilePath: str, rightPointFilePath: str) -> tuple:
+def loadTriangles(leftPointFilePath, rightPointFilePath) -> tuple:
     with open(leftPointFilePath, "r") as f:
         leftSource=f.read().split()
     leftPoints = [[float(leftSource[i]), float(leftSource[i + 1])] for i in range(0,len(leftSource) - 1,2)]
@@ -149,15 +149,15 @@ class Morpher:
 
 
 if __name__ == "__main__":
-    lTri, rTri=loadTriangles("/home/ecegridfs/a/ee364e13/Documents/labs-teoh0/Lab12/TestData/points.left.txt","/home/ecegridfs/a/ee364e13/Documents/labs-teoh0/Lab12/TestData/points.right.txt")
+    lTri, rTri=loadTriangles("points.left.txt","points.right.txt")
     # a=Triangle(np.array(((999.0,1245.6),(1128.6,1079.0),(1079.0,1439.0)),dtype=float))
     # b=a.getPoints()
     # print("1")
-    lIm = np.array(imageio.imread("/home/ecegridfs/a/ee364e13/Documents/labs-teoh0/Lab12/TestData/LeftGray.png"))
-    rIm = np.array(imageio.imread("/home/ecegridfs/a/ee364e13/Documents/labs-teoh0/Lab12/TestData/RightGray.png"))
+    lIm = np.array(imageio.imread("LeftGray.png"))
+    rIm = np.array(imageio.imread("RightGray.png"))
     a=Morpher(lIm, lTri, rIm, rTri)
-    result=a.getImageAtAlpha(0.25)
-    imageio.imwrite('result25.png', result[:,:])
+    result=a.getImageAtAlpha(0.5)
+    imageio.imwrite('result50.png', result[:,:])
 
 
 

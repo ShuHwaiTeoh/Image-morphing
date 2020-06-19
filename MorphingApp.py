@@ -26,8 +26,8 @@ from PyQt5.QtCore import Qt, QEvent
 import re
 import imageio
 import numpy as np
-from Lab12.Morphing import loadTriangles, Morpher
-from Lab12.MorphingGUI import *
+from Morphing import loadTriangles, Morpher
+from MorphingGUI import *
 
 
 # Module  level  Variables. (Write  this  statement  verbatim .)
